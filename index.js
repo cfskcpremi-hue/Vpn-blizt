@@ -1,5 +1,5 @@
 // ============================================
-// KANCIL VPN BLITZ TUNNEL v1.0
+// KANCIL VPN BLITZ TUNNEL v1.1
 // VLESS + VMess + Trojan via WebSocket + Cloudflare Tunnel
 // Tunnel bypass proxy PaaS yg bermasalah handle WebSocket langsung
 // cloudflared di-download dari OFFICIAL GitHub release
@@ -24,7 +24,7 @@ const VMESS_MAGIC = "c48619fe-8f02-49e0-b9e9-edf763e17e21";
 const TUNNEL_TOKEN = process.env.TUNNEL_TOKEN || ''; // opsional: token tunnel fix dari Cloudflare
 
 // ================= CLOUDFLARE TUNNEL =================
-const TUNNEL_BIN = path.join(__dirname, 'cloudflared');
+const TUNNEL_BIN = path.join(os.tmpdir(), 'cloudflared'); // /tmp selalu writable di PaaS
 let tunnelUrl = '';
 let tunnelStatus = 'starting';
 
@@ -524,8 +524,8 @@ class GatewayServer {
           <i class="fa-solid fa-bolt text-lg"></i>
         </div>
         <div>
-          <h1 class="text-lg font-bold tracking-wider text-white">KANCIL_VPN<span class="text-emerald-400">.sys</span> <span class="text-[10px] align-middle bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 px-2 py-0.5 rounded-full">v1.0 • Tunnel + VMess AEAD</span></h1>
-          <p class="text-[10px] text-slate-500">BLITZ TUNNEL GATEWAY v1.0</p>
+          <h1 class="text-lg font-bold tracking-wider text-white">KANCIL_VPN<span class="text-emerald-400">.sys</span> <span class="text-[10px] align-middle bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 px-2 py-0.5 rounded-full">v1.1 • Tunnel + VMess AEAD</span></h1>
+          <p class="text-[10px] text-slate-500">BLITZ TUNNEL GATEWAY v1.1</p>
         </div>
       </div>
       <div class="flex items-center gap-2 bg-emerald-950/60 border border-emerald-800 px-4 py-1.5 rounded-lg">
